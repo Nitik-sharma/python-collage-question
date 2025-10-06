@@ -1,0 +1,14 @@
+1.Find the total Number of sales Transition
+SELECT count(*) AS total_saleTransition FROM sales;
+
+2. Find the avg Cost_per_box for each products Size
+SELECT Size,avg(Cost_per_box) from products group by(Size);
+
+3.Display Total Boxes sold in each GeoID
+select GeoID ,count(Boxes) From sales GROUP BY(GeoID);
+
+4.Display the sales person who sold the maximum sold amount overall
+SELECT p.Salesperson, SUM(s.Amount) AS Totalsales From people AS p
+INNER JOIN sales as s WHERE p.SPID=s.SPID GROUP BY p.Salesperson ORDER BY Totalsales desc LIMIT 1;
+
+
